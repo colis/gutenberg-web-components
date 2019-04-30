@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: GutenbergWebComponents
+ * Plugin Name: Gutenberg Web Components
  * Plugin URI:  https://pragmatic.agency
- * Description:
+ * Description: Test integration between Gutenberg blocks and Web Components.
  * Version:     0.1.0
  * Author:      Pragmatic
  * Author URI:  https://pragmatic.agency

@@ -25,6 +25,7 @@ function setup() {
 	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
 	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
 	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
+	add_action( 'enqueue_block_editor_assets', $n( 'blocks_scripts' ) );
 
 	// Editor styles. add_editor_style() doesn't work outside of a theme.
 	add_filter( 'mce_css', $n( 'mce_css' ) );
@@ -83,7 +84,7 @@ function deactivate() {
  * @return array
  */
 function get_enqueue_contexts() {
-	return [ 'admin', 'frontend', 'shared' ];
+	return [ 'admin', 'frontend', 'shared', 'blocks' ];
 }
 
 /**
@@ -100,7 +101,7 @@ function script_url( $script, $context ) {
 		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in GutenbergWebComponents script loader.' );
 	}
 
-	return "dist/js/${script}.js";
+	return GUTENBERG_WEB_COMPONENTS_URL . "dist/js/${script}.js";
 
 }
 
@@ -166,6 +167,23 @@ function admin_scripts() {
 		'gutenberg_web_components_admin',
 		script_url( 'admin', 'admin' ),
 		[],
+		GUTENBERG_WEB_COMPONENTS_VERSION,
+		true
+	);
+
+}
+
+/**
+ * Enqueue scripts for gutenberg blocks.
+ *
+ * @return void
+ */
+function blocks_scripts() {
+
+	wp_enqueue_script(
+		'gutenberg_web_components_blocks',
+		script_url( 'blocks', 'blocks' ),
+		[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-api', 'wp-editor' ],
 		GUTENBERG_WEB_COMPONENTS_VERSION,
 		true
 	);
