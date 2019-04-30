@@ -1,4 +1,5 @@
 {
   "extends": "@10up/eslint-config",
-  "globals": { "wp": true }
+  "globals": { "wp": true },
+  "rules": { "require-jsdoc": 0 }
 }

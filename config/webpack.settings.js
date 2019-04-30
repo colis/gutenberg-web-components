@@ -8,6 +8,7 @@ module.exports = {
 		'frontend': './assets/js/frontend/frontend.js',
 		'shared': './assets/js/shared/shared.js',
 		'blocks': './assets/js/blocks/blocks.js',
+		'custom-elements': './assets/js/custom-elements/custom-elements.js',
 
 		// CSS files.
 		'admin-style': './assets/css/admin/admin-style.css',

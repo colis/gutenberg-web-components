@@ -22,6 +22,7 @@ const settings = {
 	attributes: {
 		text: {
 			type: 'string',
+			default: 'this is a test attribute'
 		}
 	},
 
@@ -35,7 +36,7 @@ const settings = {
 	 */
 	edit: props => {
 		const { attributes: { text }, className } = props;
-		// Creates a <p class='wp-block-cgb-block-web-component-test'></p>.
+
 		return (
 			<div className={ className }>
 				<hub-tooltip text={ text }>Web Components</hub-tooltip>
@@ -52,9 +53,11 @@ const settings = {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save: props => {
+		const { attributes: { text }, className } = props;
+
 		return (
-			<div className={ props.className }>
-				<hub-tooltip text={ props.text }>Web Components</hub-tooltip>
+			<div className={ className }>
+				<hub-tooltip text={ text }>Web Components</hub-tooltip>
 			</div>
 		);
 	},
