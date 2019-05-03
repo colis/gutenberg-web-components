@@ -6,8 +6,8 @@ template.innerHTML = `
 	}
 	div {
 		position: absolute;
-		background: #f0f;
-		color: #fff;
+		background: var(--tooltip-bg-colour, #f0f);
+		color: var(--tooltip-text-colour, #fff);
 		padding: 10px;
 		z-index: 100;
 	}
