@@ -60,6 +60,14 @@ class Tooltip extends HTMLElement {
 		}
 	}
 
+	get text() {
+		return this.getAttribute( 'text' );
+	}
+
+	set text( value ) {
+		this.setAttribute( 'text', value );
+	}
+
 	_render() {
 		let tooltipContainer = this.shadowRoot.querySelector( 'div' );
 		if ( this._tooltipVisible ) {
