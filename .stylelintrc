@@ -3,6 +3,7 @@
   "rules": {
     "selector-type-no-unknown": [ true, {
       "ignore": [ "custom-elements" ]
-    } ]
+    } ],
+    "sh-waqar/declaration-use-variable": null
   }
 }
